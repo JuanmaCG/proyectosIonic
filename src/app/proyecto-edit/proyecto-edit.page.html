@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="Volver" defaultHref="/proyecto"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Editar <label [innerHTML]="loadedProyecto.name"></label></ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="editProyecto()">
+                <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">ID</ion-label>
+                        <ion-input type="text" [(ngModel)]="loadedProyecto.id" required name="id" readOnly></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar titulo</ion-label>
+                        <ion-input type="text" [(ngModel)]="loadedProyecto.name" required name="name"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar Tecnologias</ion-label>
+                        <ion-textarea rows="2" [(ngModel)]="loadedProyecto.technology" name="technology"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Editar desarrolladores</ion-label>
+                        <ion-input type="number" [(ngModel)]="loadedProyecto.developers" name="developers"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

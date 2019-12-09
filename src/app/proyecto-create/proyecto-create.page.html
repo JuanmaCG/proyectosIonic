@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="Volver" defaultHref="/proyecto"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Creacion de Proyectos</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="createProyecto()">
+                <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Id</ion-label>
+                        <ion-input type="text" [(ngModel)]="id" name="id"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Tecnologias</ion-label>
+                        <ion-textarea rows="2" [(ngModel)]="technology" name="technology"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Desarrolladores</ion-label>
+                        <ion-input type="number" [(ngModel)]="developers" name="developers"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>
