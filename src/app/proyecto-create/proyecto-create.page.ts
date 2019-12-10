@@ -29,29 +29,17 @@ export class ProyectoCreatePage implements OnInit {
     });
   }
   createProyecto() {
-    if (typeof(this.proyectoService.getProyectoById(this.id)) !== 'undefined') {
+    this.proyectoService.createProyecto(this.id, this.name, this.technology, this.developers).subscribe( () => {
       this.toastController.create({
         animated: true,
         duration: 4000,
         position: 'top',
         showCloseButton: true,
-        message: 'El proyecto con este id ya existe'
+        message: 'El proyecto se creo correctamente'
       }).then(toastEl => {
         toastEl.present();
+        this.router.navigate(['/proyecto']);
       });
-    } else {
-      this.proyectoService.createProyecto(this.id, this.name, this.technology, this.developers).subscribe( () => {
-        this.toastController.create({
-          animated: true,
-          duration: 4000,
-          position: 'top',
-          showCloseButton: true,
-          message: 'El proyecto se creo correctamente'
-        }).then(toastEl => {
-          toastEl.present();
-          this.router.navigate(['/proyecto']);
-        });
-      });
-    }
+    });
   }
 }
